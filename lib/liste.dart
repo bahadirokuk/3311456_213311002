@@ -1,10 +1,10 @@
 class Liste {
   static var isimler = [];
-  static var odaisim = [];
+  static var odabilgileri = [];
   static List<List<List<String>>> oda = [
     [
       [
-        "SUPERIOT ODA 2+1",
+        "SUPERIOT ODA",
         "8.3 / 10",
         "2000 TL",
         'assets/Oda0/istanbul-suite-otel-oda.jpg',

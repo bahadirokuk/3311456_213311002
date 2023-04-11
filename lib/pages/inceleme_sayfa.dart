@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
-import 'package:rezervasyon/pages/home.dart';
+import 'package:rezervasyon/pages/giris_ekrani.dart';
 import 'package:rezervasyon/widgets/designed_appbar.dart';
-import 'package:rezervasyon/kiralama_liste.dart';
+import 'package:rezervasyon/liste.dart';
 import 'package:rezervasyon/widgets/designed_BoxDecoration.dart';
 import 'package:rezervasyon/widgets/designed_fotoGalery.dart';
 
@@ -106,7 +106,7 @@ class _IncelemeState extends State<Inceleme> {
                           ),
                           TextButton(
                             onPressed: () {
-                              Liste.odaisim.add(Liste.oda[widget.index][0][0]);
+                              Liste.odabilgileri.add('${Liste.oda[widget.index][0][0]}  ${Liste.oda[widget.index][0][2]}\n${DateTime.now().toString()}');
                               Navigator.of(context)
                                   .push(MaterialPageRoute(builder: (context) {
                                 return const Home(title: 'Tekrardan hosgeldin');

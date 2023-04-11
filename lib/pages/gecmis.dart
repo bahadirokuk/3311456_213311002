@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:rezervasyon/widgets/designed_appbar.dart';
-import 'package:rezervasyon/kiralama_liste.dart';
+import 'package:rezervasyon/liste.dart';
 import 'package:rezervasyon/widgets/designed_BoxDecoration.dart';
 
 class Gecmis extends StatefulWidget {
@@ -27,7 +27,7 @@ class _GecmisState extends State<Gecmis> {
       ),
       body: ListView.builder(
         controller: _controller,
-        itemCount: Liste.odaisim.length,
+        itemCount: Liste.odabilgileri.length,
         itemBuilder: (context, index) {
           return Column(
             children: [
@@ -37,7 +37,8 @@ class _GecmisState extends State<Gecmis> {
                       padding: const EdgeInsets.all(10),
                       decoration: DesignedBoxDecoraiton.designedBoxDecoraiton,
                       child:
-                          Text(Liste.isimler[index] + Liste.odaisim[index])
+                          Text('İsim : ${Liste.isimler[index]}\n'
+                              'Oda Bilgileri : ${Liste.odabilgileri[index]}')
                   )
               ),
             ],

@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:rezervasyon/widgets/designed_appbar.dart';
 import 'package:rezervasyon/widgets/designed_BoxDecoration.dart';
-import 'package:rezervasyon/kiralama_liste.dart';
+import 'package:rezervasyon/liste.dart';
 import 'package:rezervasyon/pages/inceleme_sayfa.dart';
 
 class OdaSayfa extends StatefulWidget {

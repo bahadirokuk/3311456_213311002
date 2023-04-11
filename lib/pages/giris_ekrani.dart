@@ -15,15 +15,22 @@ class Home extends StatefulWidget {
 }
 
 class _HomeState extends State<Home> {
-  String _userInput = '';
+  String _userInputname = '';
+  String _userInputnumber = '';
   @override
   Widget build(BuildContext context) {
+    bool buttonAktif = false;
+    if (_userInputname.isNotEmpty && _userInputnumber.length == 11) {
+      buttonAktif = true;
+    } else {
+      buttonAktif = false;
+    }
     return Scaffold(
       appBar: DesignedAppBar(tittle: widget.title),
       body: Container(
         decoration: BoxDecoration(
           image: DecorationImage(
-            image: const AssetImage("assets/otel.jpg"),
+            image: const AssetImage("assets/images/otel.jpg"),
             fit: BoxFit.cover,
             colorFilter: ColorFilter.mode(
               Colors.white.withOpacity(0.8),
@@ -36,11 +43,11 @@ class _HomeState extends State<Home> {
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               Padding(
-                padding: const EdgeInsets.symmetric(vertical:0,horizontal:20),
+                padding: const EdgeInsets.symmetric(vertical:5,horizontal:20),
                 child: TextField(
                   onChanged: (value){
                     setState(() {
-                      _userInput=value;
+                      _userInputname=value;
                     });
                   },
                   decoration: const InputDecoration(
@@ -54,18 +61,37 @@ class _HomeState extends State<Home> {
                 ),
               ),
               Padding(
+                padding: const EdgeInsets.symmetric(vertical:0,horizontal:20),
+                child: TextField(
+                  onChanged: (value){
+                    setState(() {
+                      _userInputnumber=value;
+                    });
+                  },
+                  decoration: const InputDecoration(
+                    border: OutlineInputBorder(),
+                    labelText: 'Numaranız',
+                  ),
+                  keyboardType: TextInputType.phone,
+                  inputFormatters: [
+                    FilteringTextInputFormatter.digitsOnly
+                  ],
+                ),
+              ),
+              Padding(
                 padding: const EdgeInsets.symmetric(vertical:20,horizontal:0),
                 child: ElevatedButton(
-                    onPressed: () {
-                      Liste.isimler.add(_userInput);
+                    onPressed: buttonAktif ? () {
+                      Liste.isimler.add(_userInputname);
+                      Liste.numaralar.add(_userInputnumber);
                       Navigator.of(context).push(
                           MaterialPageRoute(
                               builder: (context) {
-                                return OdaSayfa();
+                                return const OdaSayfa();
                               }
                           )
                       );
-                    },
+                    }:null,
                     child: const Text("Odalar")
                 ),
               ),
@@ -82,7 +108,7 @@ class _HomeState extends State<Home> {
                       Navigator.of(context).push(
                           MaterialPageRoute(
                               builder: (context) {
-                                return Gecmis();
+                                return const Gecmis();
                               }
                           )
                       );

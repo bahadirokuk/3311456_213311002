@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:rezervasyon/widgets/designed_appbar.dart';
 import 'package:rezervasyon/widgets/designed_BoxDecoration.dart';
-import 'package:rezervasyon/liste.dart';
 import 'package:rezervasyon/pages/inceleme_sayfa.dart';
+import 'package:rezervasyon/liste.dart';
 
 class OdaSayfa extends StatefulWidget {
   const OdaSayfa({Key? key}) : super(key: key);
@@ -32,14 +32,15 @@ class _OdaSayfaState extends State<OdaSayfa> {
       appBar: DesignedAppBar(
         tittle: 'Odalar',
         leading: IconButton(
-              icon: const Icon(Icons.arrow_back),
-              onPressed: () {
-                setState(() {
-                  Liste.isimler.removeLast();
-                  Navigator.of(context).pop();
-                });
-              },
-            ),
+          icon: const Icon(Icons.arrow_back),
+          onPressed: () {
+            setState(() {
+              Liste.isimler.removeLast();
+              Liste.numaralar.removeLast();
+              Navigator.of(context).pop();
+            });
+          },
+        ),
       ),
       body: ListView.builder(
         controller: _controller,
@@ -58,7 +59,10 @@ class _OdaSayfaState extends State<OdaSayfa> {
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         const Spacer(flex: 1),
-                        Text(Liste.oda[index][0][0]),
+                        Text(Liste.oda[index][0][0],
+                            style: const TextStyle(
+                              fontWeight: FontWeight.bold,
+                            )),
                         const Spacer(flex: 1),
                         Text(Liste.oda[index][0][1]),
                         const Spacer(flex: 1),
@@ -66,16 +70,13 @@ class _OdaSayfaState extends State<OdaSayfa> {
                         const Spacer(flex: 3),
                         FilledButton.tonal(
                             onPressed: () {
-                              Navigator.of(context).push(MaterialPageRoute(builder: (context) {
-                                return Inceleme(
-                                    index:index
-                                );
+                              Navigator.of(context)
+                                  .push(MaterialPageRoute(builder: (context) {
+                                return Inceleme(index: index);
                               }));
                             },
-                            child: const Text('İncele')
-                        )
-                      ]
-                  ),
+                            child: const Text('İncele'))
+                      ]),
                   Card(
                     color: const Color.fromRGBO(224, 247, 255, 1),
                     child: Padding(

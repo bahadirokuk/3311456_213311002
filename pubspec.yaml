@@ -63,12 +63,13 @@ flutter:
   # To add assets to your application, add an assets section, like this:
   assets:
     - assets/
-    - assets/Oda0/
-    - assets/Oda1/
-    - assets/Oda2/
-    - assets/Oda3/
-    - assets/Oda4/
-    - assets/Oda5/
+    - assets/images/
+    - assets/images/Oda0/
+    - assets/images/Oda1/
+    - assets/images/Oda2/
+    - assets/images/Oda3/
+    - assets/images/Oda4/
+    - assets/images/Oda5/
   #   - images/a_dot_burr.jpeg
   #   - images/a_dot_ham.jpeg
 

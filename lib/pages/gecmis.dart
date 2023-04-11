@@ -37,8 +37,14 @@ class _GecmisState extends State<Gecmis> {
                       padding: const EdgeInsets.all(10),
                       decoration: DesignedBoxDecoraiton.designedBoxDecoraiton,
                       child:
-                          Text('İsim : ${Liste.isimler[index]}\n'
-                              'Oda Bilgileri : ${Liste.odabilgileri[index]}')
+                          Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              Text('İsim : ${Liste.isimler[index]}'),
+                              Text('Numara : ${Liste.numaralar[index]}\n'),
+                              Text('Oda Bilgileri : ${Liste.odabilgileri[index]}'),
+                            ],
+                          )
                   )
               ),
             ],

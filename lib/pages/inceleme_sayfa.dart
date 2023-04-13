@@ -205,8 +205,7 @@ class _IncelemeState extends State<Inceleme> {
         child: BottomAppBar(
           elevation: null,
           child: Row(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: const <Widget>[],
+            children: const <Widget>[Expanded(child: Image(image: AssetImage("assets/images/kargo-banner.jpg"),fit: BoxFit.fill,))],
           ),
         ),
       ),

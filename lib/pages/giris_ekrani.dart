@@ -2,9 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:rezervasyon/pages/gecmis.dart';
 import 'package:rezervasyon/widgets/designed_appbar.dart';
+import 'package:rezervasyon/widgets/designed_bedge.dart';
 import 'oda_sayfa.dart';
 import 'package:rezervasyon/liste.dart';
-import 'package:badges/badges.dart' as badges;
 
 class Home extends StatefulWidget {
   const Home({super.key, required this.title});
@@ -97,20 +97,15 @@ class _HomeState extends State<Home> {
                     child: const Text("Odalar")
                 ),
               ),
-              badges.Badge(
-                badgeContent: Text(Liste.isimler.length.toString()),
-                badgeStyle: const badges.BadgeStyle(
-                    badgeGradient: badges.BadgeGradient.linear(
-                        colors: [Colors.orangeAccent, Colors.orange],
-                        begin: Alignment.bottomCenter,
-                        end: Alignment.topCenter)),
-                child: ElevatedButton(
-                    onPressed: () {
-                      Navigator.of(context).push(MaterialPageRoute(builder: (context) {
-                        return const Gecmis();
-                      }));
-                    },
-                    child: const Text("Geçmiş")
+              DesignedBadge(
+                content:Liste.isimler.length,
+                child:ElevatedButton(
+                  onPressed: () {
+                    Navigator.of(context).push(MaterialPageRoute(builder: (context) {
+                      return const Gecmis();
+                    }));
+                  },
+                  child: const Text("Geçmiş")
                 ),
               ),
             ],

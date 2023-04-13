@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
+
 @immutable
-class DesignedBoxDecoraiton{
+class DesignedBoxDecoraiton {
   const DesignedBoxDecoraiton._();
+
   static BoxDecoration designedBoxDecoraiton = const BoxDecoration(
     boxShadow: [
       BoxShadow(color: Colors.grey, blurRadius: 10.0, offset: Offset(3, 5)),
@@ -14,4 +16,3 @@ class DesignedBoxDecoraiton{
     ),
   );
 }
-

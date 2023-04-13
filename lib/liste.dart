@@ -13,14 +13,14 @@ class Liste {
         'assets/images/Oda0/istanbul-aile-suit-otel.jpg',
         '2 kişilik tek yatak, mutfak ve yaşam alanına sahip oda',
       ],
-      [],  //Yorum yazacakların isimleri
-      []   //Yorumları
+      [], //Yorum yazacakların isimleri
+      [] //Yorumlar
     ],
     [
       [
         "SWIM UP ODA",
         "9.5 / 10",
-        "3500 TL",
+        "4500 TL",
         'assets/images/Oda1/swimup.jpg',
         'assets/images/Oda1/swimup2.jpg',
         'assets/images/Oda1/swimup3.jpg',
@@ -31,7 +31,7 @@ class Liste {
     ],
     [
       [
-        "TERAS SUİT",
+        "TERAS SUIT",
         "8.8 / 10",
         "2450 TL",
         'assets/images/Oda2/teras.jpg',
@@ -44,7 +44,7 @@ class Liste {
     ],
     [
       [
-        "İKİ YATAKLI SUİT",
+        "İKİ YATAKLI SUIT",
         "9.1 / 10",
         "1500 TL",
         'assets/images/Oda3/ikili.jpg',
@@ -58,7 +58,7 @@ class Liste {
     [
       [
         "SAPORE ODA",
-        "9.6 / 10",
+        "8.6 / 10",
         "2980 TL",
         'assets/images/Oda4/sapore.jpeg',
         'assets/images/Oda4/sapore2.jpeg',
@@ -72,11 +72,24 @@ class Liste {
       [
         "HELENA ODA",
         "9.5 / 10",
-        "3400 TL",
+        "3200 TL",
         'assets/images/Oda5/helena.jpg',
         'assets/images/Oda5/helena2.jpg',
         'assets/images/Oda5/helena3.jpg',
         '2 kişil tek yataklı, otantik, orman ile iç içe, lüks oda'
+      ],
+      [],
+      []
+    ],
+    [
+      [
+        "POOL SUIT",
+        "9.1 / 10",
+        "4000 TL",
+        'assets/images/Oda6/pool.jpg',
+        'assets/images/Oda6/pool2.jpg',
+        'assets/images/Oda6/pool3.jpg',
+        '2 kişil tek yataklı, orman ile iç içe, özel havuzlu oda'
       ],
       [],
       []

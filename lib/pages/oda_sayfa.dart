@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:rezervasyon/widgets/designed_appbar.dart';
-import 'package:rezervasyon/widgets/designed_BoxDecoration.dart';
+import 'package:rezervasyon/widgets/designed_boxdecoration.dart';
 import 'package:rezervasyon/pages/inceleme_sayfa.dart';
 import 'package:rezervasyon/liste.dart';
 
@@ -55,35 +55,32 @@ class _OdaSayfaState extends State<OdaSayfa> {
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                  Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        const Spacer(flex: 1),
-                        Text(Liste.oda[index][0][0],
-                            style: const TextStyle(
-                              fontWeight: FontWeight.bold,
-                            )),
-                        const Spacer(flex: 1),
-                        Text(Liste.oda[index][0][1]),
-                        const Spacer(flex: 1),
-                        Text(Liste.oda[index][0][2]),
-                        const Spacer(flex: 3),
-                        FilledButton.tonal(
-                            onPressed: () {
-                              Navigator.of(context)
-                                  .push(MaterialPageRoute(builder: (context) {
-                                return Inceleme(index: index);
-                              }));
-                            },
-                            child: const Text('İncele'))
-                      ]),
+                  Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
+                    const Spacer(flex: 1),
+                    Text(Liste.oda[index][0][0],
+                        style: const TextStyle(
+                          fontWeight: FontWeight.bold,
+                        )),
+                    const Spacer(flex: 1),
+                    Text(Liste.oda[index][0][1]),
+                    const Spacer(flex: 1),
+                    Text(Liste.oda[index][0][2]),
+                    const Spacer(flex: 3),
+                    FilledButton.tonal(
+                        onPressed: () {
+                          Navigator.of(context).push(MaterialPageRoute(builder: (context) {
+                            return Inceleme(index: index);
+                          }));
+                        },
+                        child: const Text('İncele'))
+                  ]),
                   Card(
                     color: const Color.fromRGBO(224, 247, 255, 1),
                     child: Padding(
                       padding: const EdgeInsets.all(8.0),
                       child: Image(
                         image: AssetImage(Liste.oda[index][0][3]),
-                        width: 200,
+                        width: 190,
                         fit: BoxFit.fitWidth, //
                       ),
                     ),

@@ -5,6 +5,7 @@ import 'package:rezervasyon/widgets/designed_appbar.dart';
 import 'oda_sayfa.dart';
 import 'package:rezervasyon/liste.dart';
 import 'package:badges/badges.dart' as badges;
+
 class Home extends StatefulWidget {
   const Home({super.key, required this.title});
 
@@ -17,6 +18,7 @@ class Home extends StatefulWidget {
 class _HomeState extends State<Home> {
   String _userInputname = '';
   String _userInputnumber = '';
+
   @override
   Widget build(BuildContext context) {
     bool buttonAktif = false;
@@ -42,12 +44,18 @@ class _HomeState extends State<Home> {
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
+              const Padding(
+                padding: EdgeInsets.fromLTRB(0, 0, 0, 60),
+                child: Image(
+                  image: AssetImage("assets/images/otel2.png"),
+                ),
+              ),
               Padding(
-                padding: const EdgeInsets.symmetric(vertical:5,horizontal:20),
+                padding: const EdgeInsets.symmetric(vertical: 5, horizontal: 20),
                 child: TextField(
-                  onChanged: (value){
+                  onChanged: (value) {
                     setState(() {
-                      _userInputname=value;
+                      _userInputname = value;
                     });
                   },
                   decoration: const InputDecoration(
@@ -55,17 +63,15 @@ class _HomeState extends State<Home> {
                     labelText: 'Adınız ve Soyadınız',
                   ),
                   keyboardType: TextInputType.text,
-                  inputFormatters: [
-                    FilteringTextInputFormatter.singleLineFormatter
-                  ],
+                  inputFormatters: [FilteringTextInputFormatter.singleLineFormatter],
                 ),
               ),
               Padding(
-                padding: const EdgeInsets.symmetric(vertical:0,horizontal:20),
+                padding: const EdgeInsets.symmetric(vertical: 0, horizontal: 20),
                 child: TextField(
-                  onChanged: (value){
+                  onChanged: (value) {
                     setState(() {
-                      _userInputnumber=value;
+                      _userInputnumber = value;
                     });
                   },
                   decoration: const InputDecoration(
@@ -73,45 +79,36 @@ class _HomeState extends State<Home> {
                     labelText: 'Numaranız',
                   ),
                   keyboardType: TextInputType.phone,
-                  inputFormatters: [
-                    FilteringTextInputFormatter.digitsOnly
-                  ],
+                  inputFormatters: [FilteringTextInputFormatter.digitsOnly],
                 ),
               ),
               Padding(
-                padding: const EdgeInsets.symmetric(vertical:20,horizontal:0),
+                padding: const EdgeInsets.symmetric(vertical: 20, horizontal: 0),
                 child: ElevatedButton(
-                    onPressed: buttonAktif ? () {
-                      Liste.isimler.add(_userInputname);
-                      Liste.numaralar.add(_userInputnumber);
-                      Navigator.of(context).push(
-                          MaterialPageRoute(
-                              builder: (context) {
-                                return const OdaSayfa();
-                              }
-                          )
-                      );
-                    }:null,
+                    onPressed: buttonAktif
+                        ? () {
+                            Liste.isimler.add(_userInputname);
+                            Liste.numaralar.add(_userInputnumber);
+                            Navigator.of(context).push(MaterialPageRoute(builder: (context) {
+                              return const OdaSayfa();
+                            }));
+                          }
+                        : null,
                     child: const Text("Odalar")
                 ),
               ),
               badges.Badge(
                 badgeContent: Text(Liste.isimler.length.toString()),
-                  badgeStyle: const badges.BadgeStyle(
-                      badgeGradient: badges.BadgeGradient.linear(
-                        colors: [Colors.white,Color.fromRGBO(142, 194, 211, 1)],
-                          begin: Alignment.bottomCenter,
-                          end: Alignment.topCenter
-                      )),
+                badgeStyle: const badges.BadgeStyle(
+                    badgeGradient: badges.BadgeGradient.linear(
+                        colors: [Colors.orangeAccent, Colors.orange],
+                        begin: Alignment.bottomCenter,
+                        end: Alignment.topCenter)),
                 child: ElevatedButton(
                     onPressed: () {
-                      Navigator.of(context).push(
-                          MaterialPageRoute(
-                              builder: (context) {
-                                return const Gecmis();
-                              }
-                          )
-                      );
+                      Navigator.of(context).push(MaterialPageRoute(builder: (context) {
+                        return const Gecmis();
+                      }));
                     },
                     child: const Text("Geçmiş")
                 ),

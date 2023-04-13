@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:rezervasyon/widgets/designed_appbar.dart';
 import 'package:rezervasyon/liste.dart';
-import 'package:rezervasyon/widgets/designed_BoxDecoration.dart';
+import 'package:rezervasyon/widgets/designed_boxdecoration.dart';
 
 class Gecmis extends StatefulWidget {
   const Gecmis({Key? key}) : super(key: key);
@@ -36,15 +36,14 @@ class _GecmisState extends State<Gecmis> {
                   child: Container(
                       padding: const EdgeInsets.all(10),
                       decoration: DesignedBoxDecoraiton.designedBoxDecoraiton,
-                      child:
-                          Column(
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: [
-                              Text('İsim : ${Liste.isimler[index]}'),
-                              Text('Numara : ${Liste.numaralar[index]}\n'),
-                              Text('Oda Bilgileri : ${Liste.odabilgileri[index]}'),
-                            ],
-                          )
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Text('İsim : ${Liste.isimler[index]}'),
+                          Text('Numara : ${Liste.numaralar[index]}\n'),
+                          Text('Oda Bilgileri : ${Liste.odabilgileri[index]}'),
+                        ],
+                      )
                   )
               ),
             ],

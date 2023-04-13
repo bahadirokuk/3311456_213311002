@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 import 'package:rezervasyon/pages/giris_ekrani.dart';
 import 'package:rezervasyon/widgets/designed_appbar.dart';
-import 'package:rezervasyon/widgets/designed_BoxDecoration.dart';
-import 'package:rezervasyon/widgets/designed_fotoGalery.dart';
+import 'package:rezervasyon/widgets/designed_boxdecoration.dart';
+import 'package:rezervasyon/widgets/designed_foto_galery.dart';
 import 'package:rezervasyon/liste.dart';
 
 class Inceleme extends StatefulWidget {
@@ -29,8 +29,7 @@ class _IncelemeState extends State<Inceleme> {
           child: Container(
             padding: const EdgeInsets.all(10),
             decoration: DesignedBoxDecoraiton.designedBoxDecoraiton,
-            child: Text(Liste.oda[widget.index][1].last +
-                Liste.oda[widget.index][2].last),
+            child: Text(Liste.oda[widget.index][1].last + Liste.oda[widget.index][2].last),
           )),
       ...myWidgets
     ];
@@ -45,8 +44,7 @@ class _IncelemeState extends State<Inceleme> {
   }
 
   void _listen() {
-    final ScrollDirection direction =
-        _scrollController.position.userScrollDirection;
+    final ScrollDirection direction = _scrollController.position.userScrollDirection;
     if (direction == ScrollDirection.forward) {
       if (!_isVisible) {
         setState(() => _isVisible = true);
@@ -67,7 +65,7 @@ class _IncelemeState extends State<Inceleme> {
 
   @override
   Widget build(BuildContext context) {
-    var fotoList=[Liste.oda[widget.index][0][3],Liste.oda[widget.index][0][4],Liste.oda[widget.index][0][5]];
+    var fotoList = [Liste.oda[widget.index][0][3], Liste.oda[widget.index][0][4], Liste.oda[widget.index][0][5]];
     return Scaffold(
       appBar: DesignedAppBar(
         tittle: Liste.oda[widget.index][0][0],
@@ -81,9 +79,7 @@ class _IncelemeState extends State<Inceleme> {
       body: ListView(
         controller: _scrollController,
         children: [
-          DesignedFotoGalery(
-              fotolist:fotoList
-          ),
+          DesignedFotoGalery(fotolist: fotoList),
           Padding(
             padding: const EdgeInsets.all(20.0),
             child: Container(
@@ -102,16 +98,12 @@ class _IncelemeState extends State<Inceleme> {
                             Text(Liste.oda[widget.index][0][0],
                                 style: const TextStyle(
                                   fontWeight: FontWeight.bold,
-                                )
-                            ),
+                                )),
                             Padding(
-                              padding: const EdgeInsets.symmetric(vertical: 10,horizontal: 0),
+                              padding: const EdgeInsets.symmetric(vertical: 10, horizontal: 0),
                               child: Text(Liste.oda[widget.index][0][1]),
                             ),
-                            SizedBox(
-                                width:180,
-                                child: Text(Liste.oda[widget.index][0][6])
-                            ),
+                            SizedBox(width: 180, child: Text(Liste.oda[widget.index][0][6])),
                           ],
                         ),
                       ),
@@ -119,17 +111,15 @@ class _IncelemeState extends State<Inceleme> {
                         children: [
                           Text(Liste.oda[widget.index][0][2],
                               style: const TextStyle(
-                                  fontWeight: FontWeight.bold,
-                                  fontSize: 25,
-                              )
-                          ),
+                                fontWeight: FontWeight.bold,
+                                fontSize: 25,
+                              )),
                           ElevatedButton(
                             onPressed: () => showDialog<String>(
                               context: context,
                               builder: (BuildContext context) => AlertDialog(
                                 title: const Text('Rezervasyon Yap'),
-                                content:
-                                const Text('Rezervasyon yapmaktan emin misiniz?'),
+                                content: const Text('Rezervasyon yapmaktan emin misiniz?'),
                                 actions: <Widget>[
                                   TextButton(
                                     onPressed: () => Navigator.pop(context, 'Cancel'),
@@ -137,9 +127,9 @@ class _IncelemeState extends State<Inceleme> {
                                   ),
                                   TextButton(
                                     onPressed: () {
-                                      Liste.odabilgileri.add('${Liste.oda[widget.index][0][0]}  ${Liste.oda[widget.index][0][2]}\n${DateTime.now().toString()}');
-                                      Navigator.of(context)
-                                          .push(MaterialPageRoute(builder: (context) {
+                                      Liste.odabilgileri.add(
+                                          '${Liste.oda[widget.index][0][0]}  ${Liste.oda[widget.index][0][2]}\n${DateTime.now().toString()}');
+                                      Navigator.of(context).push(MaterialPageRoute(builder: (context) {
                                         return const Home(title: 'Tekrardan hosgeldin');
                                       }));
                                     },
@@ -152,7 +142,6 @@ class _IncelemeState extends State<Inceleme> {
                           ),
                         ],
                       ),
-
                     ],
                   ),
                   const Padding(
@@ -185,11 +174,9 @@ class _IncelemeState extends State<Inceleme> {
                               fonk();
                             });
                           },
-                          child: const Text("Yorum Yap")
-                      ),
+                          child: const Text("Yorum Yap")),
                     ],
                   ),
-
                   Align(
                     alignment: Alignment.centerLeft,
                     child: Column(
@@ -201,7 +188,8 @@ class _IncelemeState extends State<Inceleme> {
                                 constraints: const BoxConstraints(maxWidth: double.infinity),
                                 padding: const EdgeInsets.all(10),
                                 decoration: DesignedBoxDecoraiton.designedBoxDecoraiton,
-                                child: Text('${Liste.oda[widget.index][1][index]}\n Yorum: ${Liste.oda[widget.index][2][index]}'),
+                                child: Text(
+                                    '${Liste.oda[widget.index][1][index]}\n Yorum: ${Liste.oda[widget.index][2][index]}'),
                               )).reversed.toList(),
                     ),
                   )

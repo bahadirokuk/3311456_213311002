@@ -4,6 +4,7 @@ import 'package:rezervasyon/widgets/custom_boxdecoration.dart';
 import 'package:rezervasyon/pages/inceleme_sayfa.dart';
 import 'package:rezervasyon/pages/gecmis.dart';
 import 'package:rezervasyon/liste.dart';
+import 'hakkinda.dart';
 
 class OdaSayfa extends StatefulWidget {
   const OdaSayfa({Key? key}) : super(key: key);
@@ -41,6 +42,15 @@ class _OdaSayfaState extends State<OdaSayfa> {
               }));
             },
           ),
+          IconButton(
+            icon: const Icon(Icons.account_circle_outlined),
+            tooltip: 'Hakkında',
+            onPressed: () {
+              Navigator.of(context).push(MaterialPageRoute(builder: (context) {
+                return const Hakkinda();
+              }));
+            },
+          ),
         ],
         tittle: 'Odalar',
         leading: IconButton(
@@ -64,7 +74,7 @@ class _OdaSayfaState extends State<OdaSayfa> {
             child: Container(
               padding: const EdgeInsets.all(10),
               height: 150,
-              decoration: CutomBoxDecoraiton.designedBoxDecoraiton,
+              decoration: CutomBoxDecoraiton.boxDecoraiton,
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [

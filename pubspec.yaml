@@ -64,6 +64,7 @@ flutter:
   assets:
     - assets/
     - assets/images/
+    - assets/images/BackGround/
     - assets/images/Oda0/
     - assets/images/Oda1/
     - assets/images/Oda2/

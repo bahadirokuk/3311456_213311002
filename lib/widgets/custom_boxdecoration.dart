@@ -4,7 +4,7 @@ import 'package:flutter/material.dart';
 class CutomBoxDecoraiton {
   const CutomBoxDecoraiton._();
 
-  static BoxDecoration designedBoxDecoraiton = const BoxDecoration(
+  static BoxDecoration boxDecoraiton = const BoxDecoration(
     boxShadow: [
       BoxShadow(color: Colors.grey, blurRadius: 10.0, offset: Offset(3, 5)),
     ],

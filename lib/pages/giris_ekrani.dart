@@ -1,21 +1,23 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:rezervasyon/pages/gecmis.dart';
+import 'package:rezervasyon/pages/hakkinda.dart';
 import 'package:rezervasyon/widgets/custom_appbar.dart';
+import 'package:rezervasyon/widgets/custom_background.dart';
 import 'package:rezervasyon/widgets/custom_bedge.dart';
 import 'oda_sayfa.dart';
 import 'package:rezervasyon/liste.dart';
 
-class Home extends StatefulWidget {
-  const Home({super.key, required this.title});
+class GirisEkrani extends StatefulWidget {
+  const GirisEkrani({super.key, required this.title});
 
   final String title;
 
   @override
-  State<Home> createState() => _HomeState();
+  State<GirisEkrani> createState() => _GirisEkraniState();
 }
 
-class _HomeState extends State<Home> {
+class _GirisEkraniState extends State<GirisEkrani> {
   String _userInputname = '';
   String _userInputnumber = '';
 
@@ -33,16 +35,7 @@ class _HomeState extends State<Home> {
           actions: const []
       ),
       body: Container(
-        decoration: BoxDecoration(
-          image: DecorationImage(
-            image: const AssetImage("assets/images/otel.jpg"),
-            fit: BoxFit.cover,
-            colorFilter: ColorFilter.mode(
-              Colors.white.withOpacity(0.8),
-              BlendMode.screen,
-            ),
-          ),
-        ),
+        decoration: Background.backgroung("assets/images/BackGround/otelBack3.jpg"),
         child: Center(
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
@@ -50,7 +43,7 @@ class _HomeState extends State<Home> {
               const Padding(
                 padding: EdgeInsets.fromLTRB(0, 0, 0, 60),
                 child: Image(
-                  image: AssetImage("assets/images/otel2.png"),
+                  image: AssetImage("assets/images/otelpng2.png"),
                 ),
               ),
               Padding(
@@ -86,7 +79,7 @@ class _HomeState extends State<Home> {
                 ),
               ),
               Padding(
-                padding: const EdgeInsets.symmetric(vertical: 20, horizontal: 0),
+                padding: const EdgeInsets.symmetric(vertical: 15, horizontal: 0),
                 child: ElevatedButton(
                     onPressed: buttonAktif
                         ? () {
@@ -109,6 +102,17 @@ class _HomeState extends State<Home> {
                     }));
                   },
                   child: const Text("Geçmiş")
+                ),
+              ),
+              Padding(
+                padding: const EdgeInsets.all(15.0),
+                child: ElevatedButton(
+                    onPressed: () {
+                      Navigator.of(context).push(MaterialPageRoute(builder: (context) {
+                        return const Hakkinda();
+                      }));
+                    },
+                    child: const Text("Hakkında")
                 ),
               ),
             ],

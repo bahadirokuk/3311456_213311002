@@ -18,7 +18,7 @@ class MyApp extends StatelessWidget {
         useMaterial3: true,
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.lightBlueAccent.shade100),
       ),
-      home: const Home(title: 'Otel Rezervasyon'),
+      home: const GirisEkrani(title: 'Otel Rezervasyon'),
     );
   }
 }

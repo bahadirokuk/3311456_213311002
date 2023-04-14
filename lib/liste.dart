@@ -8,9 +8,9 @@ class Liste {
         "SUPERIOT ODA",
         "8.3 / 10",
         "2000 TL",
-        'assets/images/Oda0/istanbul-suite-otel-oda.jpg',
-        'assets/images/Oda0/bahcelievler-suit-otel-mutfak.jpg',
-        'assets/images/Oda0/istanbul-aile-suit-otel.jpg',
+        'assets/images/Oda0/superiot.jpg',
+        'assets/images/Oda0/superiot2.jpg',
+        'assets/images/Oda0/superiot3.jpg',
         '2 kişilik tek yatak, mutfak ve yaşam alanına sahip oda',
       ],
       [], //Yorum yazacakların isimleri

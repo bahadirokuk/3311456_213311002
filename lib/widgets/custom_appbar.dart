@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
 
-class DesignedAppBar extends StatelessWidget implements PreferredSizeWidget {
-  DesignedAppBar({Key? key, required this.tittle, this.leading}) : super(key: key);
+class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
+  CustomAppBar({Key? key, required this.tittle, this.leading,required this.actions}) : super(key: key);
   final IconButton? leading;
+  final List<Widget> actions;
   final String tittle;
   @override
   final Size preferredSize = _PreferredAppBarSize(17, 40);
@@ -11,7 +12,6 @@ class DesignedAppBar extends StatelessWidget implements PreferredSizeWidget {
   Widget build(BuildContext context) {
     return AppBar(
       automaticallyImplyLeading: false,
-      toolbarHeight: 70,
       leading: leading,
       title: Text(
         tittle,
@@ -19,6 +19,7 @@ class DesignedAppBar extends StatelessWidget implements PreferredSizeWidget {
           fontWeight: FontWeight.bold,
         ),
       ),
+      actions: actions,
       centerTitle: true,
       flexibleSpace: Container(
         decoration: const BoxDecoration(

@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 import 'package:rezervasyon/pages/giris_ekrani.dart';
-import 'package:rezervasyon/widgets/designed_appbar.dart';
-import 'package:rezervasyon/widgets/designed_boxdecoration.dart';
-import 'package:rezervasyon/widgets/designed_foto_galery.dart';
+import 'package:rezervasyon/pages/gecmis.dart';
+import 'package:rezervasyon/widgets/custom_appbar.dart';
+import 'package:rezervasyon/widgets/custom_boxdecoration.dart';
+import 'package:rezervasyon/widgets/custom_fotogalery.dart';
 import 'package:rezervasyon/liste.dart';
 
 class Inceleme extends StatefulWidget {
@@ -28,7 +29,7 @@ class _IncelemeState extends State<Inceleme> {
           padding: const EdgeInsets.fromLTRB(15, 0, 15, 15),
           child: Container(
             padding: const EdgeInsets.all(10),
-            decoration: DesignedBoxDecoraiton.designedBoxDecoraiton,
+            decoration: CutomBoxDecoraiton.designedBoxDecoraiton,
             child: Text(Liste.oda[widget.index][1].last + Liste.oda[widget.index][2].last),
           )),
       ...myWidgets
@@ -67,10 +68,22 @@ class _IncelemeState extends State<Inceleme> {
   Widget build(BuildContext context) {
     var fotoList = [Liste.oda[widget.index][0][3], Liste.oda[widget.index][0][4], Liste.oda[widget.index][0][5]];
     return Scaffold(
-      appBar: DesignedAppBar(
+      appBar: CustomAppBar(
+        actions: [
+          IconButton(
+            icon: const Icon(Icons.access_time),
+            tooltip: 'Rezervasyonlar',
+            onPressed: () {
+              Navigator.of(context).push(MaterialPageRoute(builder: (context) {
+                return const Gecmis();
+              }));
+            },
+          ),
+        ],
         tittle: Liste.oda[widget.index][0][0],
         leading: IconButton(
           icon: const Icon(Icons.arrow_back),
+          tooltip: 'Geri',
           onPressed: () {
             Navigator.of(context).pop();
           },
@@ -79,12 +92,12 @@ class _IncelemeState extends State<Inceleme> {
       body: ListView(
         controller: _scrollController,
         children: [
-          DesignedFotoGalery(fotolist: fotoList),
+          CustomFotoGalery(fotolist: fotoList),
           Padding(
             padding: const EdgeInsets.all(20.0),
             child: Container(
               padding: const EdgeInsets.all(10),
-              decoration: DesignedBoxDecoraiton.designedBoxDecoraiton,
+              decoration: CutomBoxDecoraiton.designedBoxDecoraiton,
               child: Column(
                 children: [
                   Row(
@@ -187,7 +200,7 @@ class _IncelemeState extends State<Inceleme> {
                                 width: double.infinity,
                                 constraints: const BoxConstraints(maxWidth: double.infinity),
                                 padding: const EdgeInsets.all(10),
-                                decoration: DesignedBoxDecoraiton.designedBoxDecoraiton,
+                                decoration: CutomBoxDecoraiton.designedBoxDecoraiton,
                                 child: Text(
                                     '${Liste.oda[widget.index][1][index]}\n Yorum: ${Liste.oda[widget.index][2][index]}'),
                               )).reversed.toList(),
@@ -205,7 +218,13 @@ class _IncelemeState extends State<Inceleme> {
         child: BottomAppBar(
           elevation: null,
           child: Row(
-            children: const <Widget>[Expanded(child: Image(image: AssetImage("assets/images/kargo-banner.jpg"),fit: BoxFit.fill,))],
+            children: const <Widget>[
+              Expanded(
+                  child: Image(
+                image: AssetImage("assets/images/kargo-banner.jpg"),
+                fit: BoxFit.fill,
+              ))
+            ],
           ),
         ),
       ),

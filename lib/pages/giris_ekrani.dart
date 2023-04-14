@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:rezervasyon/pages/gecmis.dart';
-import 'package:rezervasyon/widgets/designed_appbar.dart';
-import 'package:rezervasyon/widgets/designed_bedge.dart';
+import 'package:rezervasyon/widgets/custom_appbar.dart';
+import 'package:rezervasyon/widgets/custom_bedge.dart';
 import 'oda_sayfa.dart';
 import 'package:rezervasyon/liste.dart';
 
@@ -28,7 +28,10 @@ class _HomeState extends State<Home> {
       buttonAktif = false;
     }
     return Scaffold(
-      appBar: DesignedAppBar(tittle: widget.title),
+      appBar: CustomAppBar(
+          tittle: widget.title,
+          actions: const []
+      ),
       body: Container(
         decoration: BoxDecoration(
           image: DecorationImage(
@@ -97,8 +100,8 @@ class _HomeState extends State<Home> {
                     child: const Text("Odalar")
                 ),
               ),
-              DesignedBadge(
-                content:Liste.isimler.length,
+              CustomBadge(
+                content:Liste.odabilgileri.length,
                 child:ElevatedButton(
                   onPressed: () {
                     Navigator.of(context).push(MaterialPageRoute(builder: (context) {

@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 
 @immutable
-class DesignedBoxDecoraiton {
-  const DesignedBoxDecoraiton._();
+class CutomBoxDecoraiton {
+  const CutomBoxDecoraiton._();
 
   static BoxDecoration designedBoxDecoraiton = const BoxDecoration(
     boxShadow: [

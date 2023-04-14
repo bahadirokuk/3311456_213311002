@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
-class DesignedFotoGalery extends StatelessWidget {
-  const DesignedFotoGalery({Key? key, required this.fotolist}) : super(key: key);
+class CustomFotoGalery extends StatelessWidget {
+  const CustomFotoGalery({Key? key, required this.fotolist}) : super(key: key);
   final List<String> fotolist;
 
   @override

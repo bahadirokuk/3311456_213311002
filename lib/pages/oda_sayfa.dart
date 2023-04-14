@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:rezervasyon/widgets/designed_appbar.dart';
-import 'package:rezervasyon/widgets/designed_boxdecoration.dart';
+import 'package:rezervasyon/widgets/custom_appbar.dart';
+import 'package:rezervasyon/widgets/custom_boxdecoration.dart';
 import 'package:rezervasyon/pages/inceleme_sayfa.dart';
+import 'package:rezervasyon/pages/gecmis.dart';
 import 'package:rezervasyon/liste.dart';
 
 class OdaSayfa extends StatefulWidget {
@@ -29,10 +30,22 @@ class _OdaSayfaState extends State<OdaSayfa> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: DesignedAppBar(
+      appBar: CustomAppBar(
+        actions: [
+          IconButton(
+            icon: const Icon(Icons.access_time),
+            tooltip: 'Rezervasyonlar',
+            onPressed: () {
+              Navigator.of(context).push(MaterialPageRoute(builder: (context) {
+                return const Gecmis();
+              }));
+            },
+          ),
+        ],
         tittle: 'Odalar',
         leading: IconButton(
           icon: const Icon(Icons.arrow_back),
+          tooltip: 'Geri',
           onPressed: () {
             setState(() {
               Liste.isimler.removeLast();
@@ -51,7 +64,7 @@ class _OdaSayfaState extends State<OdaSayfa> {
             child: Container(
               padding: const EdgeInsets.all(10),
               height: 150,
-              decoration: DesignedBoxDecoraiton.designedBoxDecoraiton,
+              decoration: CutomBoxDecoraiton.designedBoxDecoraiton,
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
